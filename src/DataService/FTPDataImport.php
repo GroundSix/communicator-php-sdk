@@ -62,12 +62,8 @@ class FTPDataImport extends Resource {
      * @param string $FormatDate
      * @param array $Subscriptions
      * @param array $TriggeredDispatches
-     * @param $Status
-     * @param $TotalSuccess
-     * @param $TotalFailed
-     * @param $RecordCount
      */
-    function __construct($Id, $ClientTableId, $Type = "Insert", $Filename, $Delimiter, $FormatDate = "yyyy-mm-dd", $Subscriptions = [], $TriggeredDispatches = [], $Status, $TotalSuccess, $TotalFailed, $RecordCount)
+    function __construct($Id, $ClientTableId, $Type = "Insert", $Filename, $Delimiter, $FormatDate = "yyyy-mm-dd", $Subscriptions = [], $TriggeredDispatches = [])
     {
         $this->Id = $Id;
         $this->ClientTableId = $ClientTableId;
@@ -77,10 +73,6 @@ class FTPDataImport extends Resource {
         $this->FormatDate = $FormatDate;
         $this->Subscriptions = $Subscriptions;
         $this->TriggeredDispatches = $TriggeredDispatches;
-        $this->Status = $Status;
-        $this->TotalSuccess = $TotalSuccess;
-        $this->TotalFailed = $TotalFailed;
-        $this->RecordCount = $RecordCount;
     }
 
 }
