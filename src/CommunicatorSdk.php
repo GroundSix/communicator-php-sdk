@@ -35,7 +35,7 @@ class CommunicatorSdk {
 
 	protected function service($type)
 	{
-		if (! isset($services[$type])) {
+		if (! isset($this->services[$type])) {
 			$service = str_replace('GroundSix\\Communicator\\', '\\GroundSix\\Communicator\\Services\\', $type);
 			if (! class_exists($service)) {
 				throw new Services\ServiceException("Unknown service: " . $service);
