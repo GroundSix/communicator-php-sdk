@@ -26,12 +26,13 @@ class Subscriber {
      * @param $email
      * @param $name
      * @param array $subscriptions
+     * @param array $columnMappings
      */
-    function __construct($email, $name, array $subscriptions)
+    function __construct($email, $name, array $subscriptions, array $columnMappings)
     {
         $this->ColumnMappings = [
-            new ColumnMapping(252581, $email),
-            new ColumnMapping(252582, $name),
+            new ColumnMapping($columnMappings["emailColumnId"], $email),
+            new ColumnMapping($columnMappings["nameColumnId"], $name),
         ];
 
         $this->Subscriptions = array_map(function ($value) {
