@@ -5,7 +5,7 @@ class SubscriptionInfo extends Resource {
     public $MailingListId;
     public $IsSubscribed;
     public $DateLastAction;
-    public $SubscriptionSourceType = 'TestCase';
+    public $SubscriptionSourceType = 'WebService';
 
     function __construct($MailingListId, $IsSubscribed = true)
     {
