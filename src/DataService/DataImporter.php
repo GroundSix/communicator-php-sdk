@@ -8,10 +8,6 @@ class DataImporter extends Resource {
 	 * @var
      */
 	public $dataImport;
-	/**
-	 * @var int
-     */
-	public $ClientTableId = 34111;
 
 	/**
 	 * @param $dataImport
