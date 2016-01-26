@@ -1,7 +1,6 @@
 {
   "name": "groundsix/communicator-php-sdk",
   "description": "SDK for interacting with the Communicator SOAP api",
-  "version": "v1.0.9",
   "autoload": {
     "psr-4": {
       "GroundSix\\Communicator\\": "src/"
