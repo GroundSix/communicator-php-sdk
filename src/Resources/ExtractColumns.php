@@ -1,17 +1,13 @@
 <?php namespace GroundSix\Communicator\Resources;
 
 /**
- * Class ExtractColumn
- * @package GroundSix\Communicator\Resources
- */
-/**
  * Class ExtractColumns
  * @package GroundSix\Communicator\Resources
  */
-class ExtractColumns extends Resource
+class ExtractColumns
 {
     /**
-     * @var ExtractColumn[]
+     * @var array
      */
     public $ExtractColumns;
 
@@ -22,6 +18,5 @@ class ExtractColumns extends Resource
     {
         $this->ExtractColumns = $ExtractColumns;
     }
-
 
 }
