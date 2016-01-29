@@ -12,7 +12,7 @@ class GetMailingListColumns extends Resource
      */
     public function __construct($mailingListId)
     {
-        $this->$mailingListId = $mailingListId;
+        $this->mailingListId = $mailingListId;
     }
 
 
