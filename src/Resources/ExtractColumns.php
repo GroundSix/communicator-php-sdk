@@ -20,7 +20,7 @@ class ExtractColumns extends Resource
      */
     public function __construct(array $ExtractColumns)
     {
-        $this->$ExtractColumns = $ExtractColumns;
+        $this->ExtractColumns = $ExtractColumns;
     }
 
 
