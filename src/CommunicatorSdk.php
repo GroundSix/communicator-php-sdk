@@ -26,11 +26,28 @@ class CommunicatorSdk {
 
 		$header_name = $header_reflection->getShortName();
 
-		$client = new SoapClient($service->url . '?WSDL', array("trace" => 1, "exception" => 0, 'soap_version' => \SOAP_1_2));
+		$client = new SoapClient($service->url . '?WSDL', array("trace" => 1, 'soap_version' => \SOAP_1_2));
 
 		$header = new SoapHeader('http://ws.communicatorcorp.com/', $header_name, $service->header);
 		$client->__setSoapHeaders($header);
-		return $client->{$name}((array) $resource);
+
+        // Progressive Backoff attempts to the API before giving up
+        $attempts = 5;
+        for ($attempt = 1; $attempt <= $attempts; $attempt++) {
+            try {
+                return $client->{$name}((array) $resource);
+            } catch (\SoapFault $e) {
+
+                // If we have maxed out our attempts, throw the exception
+                if ($attempt == $attempts) {
+                    throw $e;
+                }
+
+                // Backoff 1.5 ^ $attempt seconds
+                $timeout = (1.5 ** $attempt) * 1000000;
+                usleep($timeout);
+            }
+        }
 	}
 
 	protected function service($type)
