@@ -38,9 +38,9 @@ class CommunicatorSdk {
                 return $client->{$name}((array) $resource);
             } catch (\SoapFault $e) {
 
-                // If we have maxed out our attempts, exit and show the exception
+                // If we have maxed out our attempts, throw the exception
                 if ($attempt == $attempts) {
-                    exit ('Error: ' . $e->__toString());
+                    throw $e;
                 }
 
                 // Backoff 1.5 ^ $attempt seconds
